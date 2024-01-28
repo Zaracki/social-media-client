@@ -29,6 +29,10 @@ function failedFetch() {
 }
 
 describe('localStorage', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should store a token when valid credentials are provided', async () => {
     global.fetch = jest.fn(() => successfulFetch());
     const loginResult = await login(emailValid, passwordValid);

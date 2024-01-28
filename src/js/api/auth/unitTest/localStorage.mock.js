@@ -1,7 +1,19 @@
+const setItem = jest.fn((key, value) => {
+  localStorage[key] = value;
+});
+
+const getItem = jest.fn((key) => {
+  return localStorage[key] || null;
+});
+
+const removeItem = jest.fn((key) => {
+  delete localStorage[key];
+});
+
 const localStorageMock = {
-  setItem: jest.fn((key, value) => (localStorage[key] = value)),
-  getItem: jest.fn((key) => localStorage[key] || null),
-  removeItem: jest.fn((key) => delete localStorage[key]),
+  setItem,
+  getItem,
+  removeItem,
 };
 
 export default localStorageMock;
